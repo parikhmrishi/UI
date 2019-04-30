@@ -1,0 +1,119 @@
+<app-header></app-header>
+<div class="container">
+  <div class="box">
+    <h1 class="head">View Quiz </h1>
+    <div *ngIf="!showQuestionAndAnswers" class="stepOne">
+      <div class="container text-center">
+        <table class="text-center ">
+          <tr>
+
+            <td style="font-size: 18px;">
+              Title:
+            </td>
+            <td colspan="4">
+              <input type="text" class="form-control mb-4" [(ngModel)]="name" name="title" value="{{name}}"
+                placeholder="Enter title" readonly>
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Description:
+            </td>
+            <td>
+              <textarea class="form-control" [(ngModel)]="description" rows="7" name="description" maxlength="500"
+                value="{{description}}" placeholder="Enter description" readonly> </textarea>
+
+
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Number of Questions:
+            </td>
+            <td>
+              <input type="number" class="form-control mb-4" [(ngModel)]="numberOfQuestionsDisplayed" name="noofqstn"
+                readonly>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Start Date and Time:
+            </td>
+            <td>
+              <input type="datetime-local" class="form-control mb-4" [(ngModel)]="startTime" name="startdate" readonly>
+            </td>
+          <tr>
+
+            <td>
+              End Date and Time:
+            </td>
+            <td>
+              <input type="datetime-local" class="form-control mb-4" id="test" [(ngModel)]="endTime" name="enddate"
+                readonly>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center">
+              <button (click)="showquestionandasnwers()">Questions & Answers</button>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+
+
+    <div *ngIf="showQuestionAndAnswers">
+      <h3>Question and Answers</h3>
+      <!-- <div *ngFor="let question of QuizQuestions.questions">
+        {{question.id}}
+        {{question.questionText}}
+        <div *ngIf="question.questionTypeId == '1' ">
+          <div *ngFor="let option of question.questionOptions">
+            <div *ngIf="option.isCorrect">
+            <input type="radio" checked> {{option.option}}
+          </div>
+          <div *ngIf="!option.isCorrect">
+              <input type="radio"> {{option.option}}
+          </div>
+          </div>
+
+        </div>
+          <div *ngIf="question.questionTypeId == '2' ">
+            <div *ngFor="let option of question.questionOptions">
+              <div *ngIf="option.isCorrect">
+                <input type="checkbox" checked> {{option.option}}
+              </div>
+              <div *ngIf="!option.isCorrect">
+                  <input type="checkbox" > {{option.option}}
+                </div>
+
+            </div>
+
+
+        </div>
+
+      </div> -->
+      <div class="Questions" *ngFor="let question of QuizQuestions.questions; let questionIndex=index">
+        <div>
+          <span> {{questionIndex +1}} </span> <input type="text" title="preview-question"
+            class="bold form-control mb-4 hidden" value="{{question.questionText}}" readonly />
+        </div>
+
+        <div class="push-l2" *ngFor="let option of question.questionOptions; let optionIndex=index">
+          <input type="radio" [checked]=option.isCorrect disabled />&nbsp;&nbsp;
+          <input type="text" class="form-control mb-4 hidden" title="preview-option" value="{{option.option}}"
+            readonly />
+        </div>
+      </div>
+      <div class="text-center">
+        <button style="align-self: center;" (click)="showDescription()">Back</button>
+        <button style="align-self: center;" ><a style="text-decoration: none;"href="home">Home</a></button>
+      </div>
+      <br>
+
+
+    </div>
+  </div>

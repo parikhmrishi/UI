@@ -1,0 +1,168 @@
+<app-header></app-header>
+<div class="container">
+  <div class="box">
+    <h1 class="head">Create Quiz </h1>
+
+    <div class="stepOne" *ngIf="step == 1">
+      <h3 align="center">Step 1: Quiz </h3>
+      <div class="container text-center">
+        <form (ngSubmit)="onSubmit(quizDescForm)" #quizDescForm="ngForm" ngNativeValidate>
+          <table>
+            <tr>
+
+              <td>
+                Title:
+              </td>
+              <td colspan="4">
+                <input type="text" style="width:150%;" class="form-control mb-4" [(ngModel)]="Name" name="title"
+                  value="{{name}}" placeholder="Enter title" required>
+
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Description:
+              </td>
+              <td>
+                <textarea class="form-control" style="width:150%; margin-left:16px;" [(ngModel)]="Description" rows="7"
+                  name="description" maxlength="500" value="{{description}}" placeholder="Enter description"
+                  required> </textarea>
+
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Number of Questions:
+              </td>
+              <td>
+                <input type="number" style="width:150%;" class="form-control mb-4"
+                  [(ngModel)]="numberOfQuestionsDisplayed" name="noofqstn" required min="2">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Start Date and Time:
+              </td>
+              <td>
+                <input type="datetime-local" style="width:150%;" class="form-control mb-4" [(ngModel)]="startTime"
+                  name="startdate" required>
+              </td>
+            <tr>
+
+              <td>
+                End Date and Time:
+              </td>
+              <td>
+                <input type="datetime-local" style="width:150%;" class="form-control mb-4" id="test"
+                  [(ngModel)]="endTime" name="enddate" required>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="text-center">
+                <button type="submit" mdbBtn>SAVE</button>
+              </td>
+            </tr>
+          </table>
+
+
+
+        </form>
+      </div>
+    </div>
+
+
+    <div class="stepTwo" *ngIf="step == 2">
+      <h3 align="center">Step 2: Question </h3>
+
+      <button class="btn back" mdbBtn (click)="decreaseStep()"><i class="fa fa-arrow-left"
+          aria-hidden="true"></i>&nbsp;&nbsp;Quiz</button>
+
+
+      <div>
+        <form [formGroup]="form">
+
+          <div formArrayName="Questions">
+            <div *ngFor="let QuestionForm of form['controls'].Questions['controls']; let questionindex=index">
+
+              <div formGroupName="{{questionindex}}" class="Questions" [formGroup]="QuestionForm">
+                <input type="text" class="form-control mb-4" title="question" placeholder="Enter question"
+                  formControlName="questionText" required>
+
+
+
+                <select (change)="onChange(questionindex)" class=" custom-select" formControlName="questionType">
+                  <option name="mcq">MCQ</option>
+                  <option name="maq" selected value="MAQ">MAQ </option>
+                </select>
+
+                <div formArrayName="questionOptions">
+                  <div
+                    *ngFor="let Optionvalue of QuestionForm['controls']?.questionOptions['controls']; let optionindex=index">
+                    <div formGroupName="{{optionindex}}" class="Options" [formGroup]="Optionvalue">
+
+                      <input type="radio" *ngIf="returnChange(questionindex)" name="isCorrect"
+                        formControlName="isCorrect" value='true' />
+                      <input type="checkbox" *ngIf="!returnChange(questionindex)" name="isCorrect"
+                        formControlName="isCorrect" />
+                      <input type="text" class="form-control mb-4" title="option" placeholder="Enter option"
+                        formControlName="option" required>
+
+                      <button class="btn" mdbBtn color="#FFF" class="waves-light" mdbWavesEffect
+                        (click)="removeOption(questionindex,optionindex)"><i class="fa fa-trash"></i></button>
+
+                    </div>
+                  </div>
+                </div>
+                <input type="button" mdbBtn color="#8b5ec5" class="waves-light" mdbWavesEffect
+                  (click)="removeQuestion(questionindex)" value="Remove Question">
+
+                <input type="button" class="btn" mdbBtn color="#8b5ec5" class="waves-light" mdbWavesEffect
+                  (click)="addOption(questionindex)" value="Add Option">
+
+
+              </div>
+
+            </div>
+
+            <input type="button" class="btn btn-primary" mdbBtn color="#8b5ec5" class="waves-light" mdbWavesEffect
+              (click)="addQuestion()" value="Add Question" [disabled]="!form.valid">
+            <input type="button" style="float:right; background-color: #8b5ec5; color:#FFF" class="float_right" mdbBtn
+              color="#8b5ec5" class="waves-light" mdbWavesEffect (click)="preview(form.value.Questions)"
+              [disabled]="!form.valid" value="Preview">
+          </div>
+        </form>
+      </div>
+      <p>{{form.value | json}}</p>
+
+    </div>
+
+
+    <div class="stepThree" *ngIf="step == 3">
+      <h3 align="center">Step 3: Preview </h3>
+
+      <button class="btn back" mdbBtn (click)="decreaseStep()"><i class="fa fa-arrow-left"
+          aria-hidden="true"></i>&nbsp;&nbsp;Question</button>
+      <div class="Questions" *ngFor="let question of questions; let questionIndex=index">
+        <div>
+          <span> {{questionIndex +1}} </span> <input type="text" title="preview-question"
+            class="bold form-control mb-4 hidden" value="{{question.questionText}}" readonly />
+        </div>
+
+        <div class="push-l2" *ngFor="let option of question.questionOptions; let optionIndex=index">
+          <div *ngIf = "question.questionType == 'MCQ'" class="inline">
+          <input type="radio" [checked]=option.isCorrect disabled />&nbsp;&nbsp;
+        </div>
+        <div *ngIf = "question.questionType == 'MAQ'" class="inline">
+          <input type="checkbox" [checked]=option.isCorrect disabled />&nbsp;&nbsp;
+        </div>
+          <input type="text" class="form-control mb-4 hidden" title="preview-option" value="{{option.option}}"
+            readonly />
+        </div>
+      </div>
+
+      <button type="submit" (click)="onSubmit()" mdbBtn>SAVE</button>
+
+    </div>
+
+
+  </div>

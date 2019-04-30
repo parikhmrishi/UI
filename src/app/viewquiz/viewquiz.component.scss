@@ -1,0 +1,178 @@
+
+//Create Quiz Page
+
+.head{ 
+    display: inline-block;
+    color: #8877c9;
+    padding-left:40%;
+}
+
+.topnav {
+    background-color: #EFEFEF;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    display: inline-block;
+    color: #000;
+    text-align: center;
+    padding: 14px 12%;
+   // padding-left: 10%;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    border-bottom: 0.5rem solid #8b5ec5;
+  }
+  
+  /* Add an active class to highlight the current page */
+  
+  .box{
+    //padding: 1rem 0;
+    box-shadow: 0px 1px 7px 0px gray;
+} 
+.container {
+    width:200%;
+    padding-top: 1.5rem;
+}
+
+.nav {
+  display: inline;
+}
+
+
+.back {
+ background: #8b5ec5;
+ position: absolute;
+top:-5rem;
+left:5rem;
+}
+
+/* new trivia background color #8877c9 */
+
+tr,td{
+    text-align: left;
+}
+td{
+   padding: 1rem 3rem;
+}
+
+table{
+    margin: 0 auto;
+}
+
+.btn-property {
+    color:#FFF;
+    background-color: #8b5ec5;
+    padding: 0.2rem 1rem;
+}
+
+//Quiz Description
+
+li{
+  display:inline;
+}
+form{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+/* new trivia background color #8877c9 */
+
+
+.btn-property {
+  color:#FFF;
+  background-color: #8b5ec5;
+  padding: 0.2rem 1rem;
+}
+
+//Question page
+
+.Questions, .Options, .Zs, p{
+  margin: 10px;
+ }
+ 
+ input{
+   margin: 10px;
+ }
+ 
+ input[type="button"], p{
+   margin-top: 0px;
+ }
+
+ input[title="question"]{
+  width:80%;
+}
+ 
+ 
+ .Questions{
+   border:  1px solid #8b5ec5;
+   background-color: whitesmoke;
+ }
+ 
+ .Options{
+   border: #8b5ec5 solid 1px;
+ }
+
+ .back {
+  position: relative;
+  bottom: 5rem; 
+  left:0.4rem;
+
+}
+
+.float_right {
+background-color: #8b5ec5;
+color:#FFF;
+float: right;
+border-radius: 10px;
+padding: 0.2rem 0.5rem;
+}
+ 
+
+ input[value="Add Question"]{
+  color: #FFF;
+   background-color: #8b5ec5;
+ }
+ 
+ input[value="Add Option"]{
+   color: #000;
+ }
+ 
+//Preview Page
+
+//Styling goes here
+
+.container {
+  padding: 1rem;
+}
+
+.back {
+  position: relative;
+  bottom: 7rem; 
+  left:-0.7rem;
+
+}
+
+.card {
+  //border: 1px solid #CFCFCF;
+  margin: 0.3rem 0.5rem;
+  padding:1rem;
+  margin-bottom: 10px;
+  box-shadow: 1px 3px #AFAFAF;
+}
+
+.push-l2 {
+  padding-left: 2rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+// input[type=text] {
+//   border: none;
+//   outline: none;
+// }

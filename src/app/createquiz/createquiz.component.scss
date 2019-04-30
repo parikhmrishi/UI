@@ -1,0 +1,200 @@
+
+//Create Quiz Page
+
+.head{ 
+    display: inline-block;
+    color: #8877c9;
+    padding-left:40%;
+}
+
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    display: inline-block;
+    color: #000;
+    text-align: center;
+    padding: 14px 12%;
+   // padding-left: 10%;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    border-bottom: 0.5rem solid #8b5ec5;
+  }
+  
+  /* Add an active class to highlight the current page */
+  
+  .box{
+    //padding: 1rem 0;
+    box-shadow: 0px 1px 7px 0px gray;
+} 
+.container {
+    width:200%;
+    padding-top: 1.5rem;
+}
+
+.nav {
+  display: inline;
+}
+
+
+.back {
+ background: #8b5ec5;
+ position: absolute;
+top:-5rem;
+left:5rem;
+}
+
+/* new trivia background color #8877c9 */
+
+tr,td{
+    text-align: left;
+}
+td{
+   padding: 0.5rem 3rem;
+   font-size: 18px;
+}
+
+table{
+    margin-left:7rem;
+}
+
+.btn-property {
+    color:#FFF;
+    background-color: #8b5ec5;
+    padding: 0.2rem 1rem;
+}
+
+//Quiz Description
+
+li{
+  display:inline;
+}
+form{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+/* new trivia background color #8877c9 */
+
+
+.btn-property {
+  color:#FFF;
+  background-color: #8b5ec5;
+  padding: 0.2rem 1rem;
+  margin-left: 15rem;
+}
+
+//Question page
+
+.Questions, .Options, .Zs, p{
+  margin: 10px;
+ }
+ 
+ input{
+   margin: 1rem;
+ }
+ 
+ input[type="button"], p{
+   margin-top: 0px;
+ }
+
+ input[title="question"]{
+  width:80%;
+  display:inline;
+}
+
+input[title="option"]{
+  width:40%;
+  display:inline;
+}
+
+select {
+  width:15%;
+  display: inline;
+  margin-bottom:4px;
+}
+ 
+ 
+ .Questions{
+   //border:  1px solid #8b5ec5;
+   box-shadow:2px 2px 10px 2px #C9C9C9;
+   padding: 1rem 0.5rem;
+ }
+ 
+
+ .option {
+   width:50%;
+ }
+
+ .back {
+  position: relative;
+  bottom: 5rem; 
+  left:0.4rem;
+  background-color: #8b5ec5;
+  color:#FFF;
+
+}
+
+.float_right {
+background-color: #8b5ec5;
+color:#FFF;
+float: right;
+border-radius: 10px;
+padding: 0.2rem 0.5rem;
+}
+ 
+
+ input[value="Add Question"]{
+  color: #FFF;
+   background-color: #8b5ec5;
+ }
+ 
+ input[value="Add Option"]{
+   color: #000;
+ }
+ 
+//Preview Page
+
+//Styling goes here
+
+.container {
+  padding: 1rem;
+}
+
+.back {
+  position: relative;
+  bottom: 7rem; 
+  left: 1rem;
+}
+
+input[title="preview-question"]{
+  width:80%;
+  display:inline;
+  border:none;
+  background-color: #FFF;
+ 
+ }
+ 
+ input[title="preview-option"]{
+  width:40%;
+  display:inline;
+  border:none;
+  background-color: #FFF;
+ }
+.push-l2 {
+  padding-left: 2rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+.inline {
+  display: inline;
+}
+
+// input[type=text] {
+//   border: none;
+//   outline: none;
+// }

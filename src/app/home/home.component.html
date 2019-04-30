@@ -1,0 +1,161 @@
+<app-header></app-header>
+
+<div id="a5" *ngIf="isvalid;">
+  <app-sidemenu></app-sidemenu>
+</div>
+
+<div style="width:1440px;height:630px;margin-left:50px;margin-top: -10px;">
+  <h3 class="shift-l2;">UPCOMING QUIZZES</h3>
+  <div style="width:100%;display:flex;flex-direction:row;flex-wrap: wrap;">
+    <div *ngFor="let quiz of upcomingquizs" class="pointer"
+      style="width:200px;height:260px; border:1px solid gray;margin: 15px;">
+      <div style="width:100%;height:60%;background-color: white;">
+        <img src="../../assets/quizimage.jpg" width="198" height="150">
+        <img src="../../assets/menu (1).png" class="icon-position" (click)="editorview(quiz)">
+        <div *ngIf="Editorview && quiz.id === selectedQuiz.id">
+          <ul style="list-style-type:none">
+            <li class="listfontstyle">Edit</li>
+            <li class="listfontstyle" (click)="viewquizpage(quiz.id)">View</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rows" style="width: 100%;
+    height: 40%;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 5px;">
+        <div>
+          Quiz Name : {{quiz.name}}
+        </div>
+        <div>
+          Created By : {{quiz.createdby}}
+        </div>
+        <div>
+          Date : {{quiz.startTime|date}}
+        </div>
+        <div>
+          Time : {{quiz.startTime|date:'shortTime'}}
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <h3 class="shift-l1">EXPIRED QUIZS</h3>
+  <div style="width:100%;display:flex;flex-direction:row;flex-wrap: wrap;">
+
+    <div *ngFor="let quiz of expiredquizs" class="pointer"
+      style="width:200px;height:260px; border:1px solid gray;margin: 15px;">
+      <div style="width:100%;height:60%;background-color: white;">
+        <img src="../../assets/quizimage.jpg" width="198" height="150">
+        <img src="../../assets/menu (1).png" class="icon-position" (click)="editorview(quiz)">
+        <div *ngIf="Editorview && quiz.id === selectedQuiz.id">
+          <ul style="list-style-type:none">
+            <li class="listfontstyle">Edit</li>
+            <li class="listfontstyle" (click)="viewquizpage(quiz.id)">View</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rows" style="width: 100%;
+    height: 40%;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 5px;">
+        <div>
+          Quiz Name : {{quiz.name}}
+        </div>
+        <div>
+          Created By : {{quiz.createdby}}
+        </div>
+        <div>
+          Date : {{quiz.startTime|date}}
+        </div>
+        <div>
+          Time : {{quiz.startTime|date:'shortTime'}}
+        </div>
+        <pre style="padding:2px;"><br><br> 
+  
+</pre>
+      </div>
+    </div>
+  </div>
+  <h3 class="shift-l2;">ONGOING QUIZZES</h3>
+  <div style="width:100%;display:flex;flex-direction:row;flex-wrap: wrap;">
+
+    <div *ngFor="let quiz of ongoingquizs" class="pointer"
+      style="width:200px;height:260px; border:1px solid gray;margin: 15px;">
+      <div style="width:100%;height:60%;background-color: white;">
+        <img src="../../assets/quizimage.jpg" width="198" height="150">
+        <img src="../../assets/menu (1).png" class="icon-position" (click)="editorview(quiz)">
+        <div *ngIf="Editorview && quiz.id === selectedQuiz.id">
+          <ul style="list-style-type:none">
+            <li class="listfontstyle">Edit</li>
+            <li class="listfontstyle" (click)="viewquizpage(quiz.id)">View</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rows" style="width: 100%;
+    height: 40%;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 5px;">
+        <div>
+          Quiz Name : {{quiz.name}}
+        </div>
+        <div>
+          Created By : {{quiz.createdby}}
+        </div>
+        <div>
+          Date : {{quiz.startTime|date}}
+        </div>
+        <div>
+          Time : {{quiz.startTime|date:'shortTime'}}
+        </div>
+
+      </div>
+    </div>
+    </div>
+    <h3 class="shift-l2;">TAKEN QUIZZES</h3>
+    <div style="width:100%;display:flex;flex-direction:row;flex-wrap: wrap;">
+
+    <div *ngFor="let quiz of takenquizzes " class="pointer"
+      style="width:200px;height:260px; border:1px solid gray;margin: 15px;">
+      <div style="width:100%;height:60%;background-color: white;">
+        <img src="../../assets/quizimage.jpg" width="198" height="150">
+        <img src="../../assets/menu (1).png" class="icon-position" (click)="editorview(quiz)">
+        <div *ngIf="Editorview && quiz.id === selectedQuiz.id">
+        <ul style="list-style-type:none">
+          <li class="listfontstyle">Edit</li>
+          <li class="listfontstyle" (click)="viewquizpage(quiz.id)">View</li>
+        </ul>
+      </div>
+      </div>
+      <div class="rows" style="width: 100%;
+    height: 40%;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 5px;">
+        <div>
+          Quiz Name : {{quiz.name}}
+        </div>
+        <div>
+          Created By : {{quiz.createdby}}
+        </div>
+        <div>
+          Date : {{quiz.startTime|date}}
+        </div>
+        <div>
+          Time : {{quiz.startTime|date:'shortTime'}}
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </div>

@@ -1,0 +1,24 @@
+<div id="container">
+  <div>
+    <div class="inline" (click)="displaysidemenu()">
+      <img class="menu inline" src="../../assets/hamburger_menu.png" />
+    </div>
+    <div class=" sidebar" [ngClass]="{'checked': sidemenu, 'unchecked':!sidemenu }">
+      <ul>
+        <li>
+          {{name}}
+        </li>
+        <li>
+          {{email}}
+        </li>
+        <li (click)="signOut()">
+          LOG OUT
+        </li>
+      </ul>
+    </div>
+
+    <img src="../assets/trivialogo.jpeg" alt="trivialogo" id="image" class="inline right" routerLink="/home">
+    <button type="button" id="btn_property" class="btn btn-primary inline right pointer" disabled="!admin"
+      (click)="createquiz()">Create Quiz</button>
+  </div>
+</div>

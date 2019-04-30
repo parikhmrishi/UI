@@ -1,0 +1,78 @@
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.overlay {
+  background-image: url(../../assets/background1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+:host {
+  height: 100%;
+}
+
+.photo {
+  object-fit: contain;
+}
+
+.card {
+  width: 32rem;
+  height: 37.66rem;
+  margin: 0 auto;
+  background-image: url(../../assets/logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+}
+
+.div-align {
+  position: relative;
+  top: 22rem;
+  left: 7rem;
+}
+
+.btn-dimention {
+  border-radius: 28px;
+  width: 18rem;
+  height: 1.92rem;
+  text-align: center;
+  border: 1px solid #8b5ec5;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.center {
+  position: relative;
+  bottom: 0.7rem;
+}
+
+.font-purple {
+  color: #8b5ec5;
+}
+
+.align {
+  position: relative;
+  left: 22%;
+  bottom: -5%;
+}
+
+.image {
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+  right: 0.15rem;
+  bottom: 0.1rem;
+}
